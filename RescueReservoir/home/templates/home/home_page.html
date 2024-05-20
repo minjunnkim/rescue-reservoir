@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div>
+        {% if page.image_link %}
+            <img src="{{ page.image_link }}" alt="sample" style="width:500px;height:600px;">
+        {% endif %}
+        <p>{{ page.text }}</p>
+        {% if page.pdf_link %}
+            <embed src="{{ page.pdf_link }}" width="500" height="375" 
+            type="application/pdf">
+        {% endif %}
+        <br><br><br>
+        {% if page.yt_link %}
+            <iframe width="560" height="315" src="{{ page.yt_link }}" title="YouTube Player" allowfullscreen></iframe>
+        {% endif %}
+        <br><br>
+        {% if page.link %}
+            <a href="{{ page.link }}">Link to something</a>
+        {% endif %}
+    </div>
+
+  {{ page.body|richtext }}
+{% endblock content %}

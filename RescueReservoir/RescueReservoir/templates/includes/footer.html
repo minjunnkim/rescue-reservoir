@@ -1,0 +1,24 @@
+{% load navigation_tags %}
+
+<footer>
+    <p>Rescue Reservoir</p>
+
+    {% with twitter_url=settings.base.NavigationSettings.twitter_url instagram_url=settings.base.NavigationSettings.instagram_url facebook_url=settings.base.NavigationSettings.facebook_url %}
+        {% if twitter_url or instagram_url or facebook_url %}
+            <p>
+                Follow us on:
+                {% if instagram_url %}
+                    <a href="{{ instagram_url }}">Instagram</a>
+                {% endif %}
+                {% if twitter_url %}
+                    <a href="{{ twitter_url }}">Twitter</a>
+                {% endif %}
+                {% if facebook_url %}
+                    <a href="{{ facebook_url }}">Facebook</a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endwith %}
+
+    {% get_footer_text %}
+</footer>

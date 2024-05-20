@@ -1,4 +1,0 @@
-django==5.0.6
-wagtail==6.1
-pymongo[snappy,gssapi,srv,tls]
-dnspython
